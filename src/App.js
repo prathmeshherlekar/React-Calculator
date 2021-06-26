@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import './css/style.css';
+import Result from './components/Result';
+import Keyboard from './components/keyboard';
+import { useState } from 'react';
+
+
+
 
 function App() {
+  const [value,setvalue]=useState(0);
+  
+  const [result,setResult]=useState('0');
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container-fluid">
+      <div className="row">
+          <Result value={result} setvalue={setvalue}/>                
+      </div>
+      
+      <Keyboard value={value} setResult={setResult} result={result} setvalue={setvalue}/>
+      
     </div>
   );
 }
